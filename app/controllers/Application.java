@@ -8,7 +8,7 @@ import play.mvc.With;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        redirect("/my");
     }
 
 }

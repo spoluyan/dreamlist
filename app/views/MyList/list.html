@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+
+#{list items:dreams, as:'dream'}
+	<div class="row">
+		<div class="col-md-1">
+			<button id="mark-${dream.id}" type="button" class="btn btn-default btn-lg" onclick="markDream(${dream.id})">
+				#{if dream.isDone }
+  					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  				#{/if}
+  				#{else}
+  					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  				#{/else}
+			</button>
+		</div>
+		<div class="col-md-11">
+			<blockquote>
+				#{if dream.isDone }
+					<p id="dream-${dream.id}"><del>${dream.dream}</del></p>
+				#{/if}
+				#{else}
+					<p id="dream-${dream.id}">${dream.dream}</p>
+				#{/else}
+				<footer>Added ${dream.added}</footer>
+			</blockquote>
+		</div>
+	</div>
+#{/list}
+
+<script>
+	var markAction = #{jsRoute @MyList.markDream(':id') /};
+</script>

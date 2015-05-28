@@ -1,0 +1,13 @@
+app.title=Things Before I Die
+
+menu.my=My list
+menu.similar=Similar lists
+menu.friends-lists=Friend's lists
+menu.search=Add friends
+menu.logout=Logout
+
+footer.powered=Powered with
+footer.and=and
+footer.inspired=Inspired by
+footer.created=Created by
+footer.src=Source code is available on

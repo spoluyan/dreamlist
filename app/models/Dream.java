@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -29,5 +30,9 @@ public class Dream extends Model {
         this.dream = dream;
         this.added = new Date();
         this.isPrivate = isPrivate;
+    }
+
+    public static List<Dream> findByUserID(Long userID) {
+        return find("user.id = ? order by isDone asc", userID).fetch();
     }
 }

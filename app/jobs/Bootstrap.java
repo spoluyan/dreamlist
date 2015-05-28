@@ -15,7 +15,10 @@ public class Bootstrap extends Job {
         Fixtures.deleteDatabase();
 
         User user = new User("ninja", Crypto.passwordHash("123")).save();
+        user.save();
         new Dream(user, "Do it!", false).save();
-        new Dream(user, "Do it againg!", true).save();
+        Dream dream = new Dream(user, "Do it againg!", true);
+        dream.isDone = true;
+        dream.save();
     }
 }

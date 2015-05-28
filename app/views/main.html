@@ -2,16 +2,41 @@
 
 <html>
     <head>
-        <title>#{get 'title' /}</title>
+        <title>&{'app.title'}</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/styles.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/footer.css'}">
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     </head>
     <body>
-        #{doLayout /}
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="@{MyList.list()}">&{'menu.my'}</a></li>
+						<li><a href="#about">&{'menu.similar'}</a></li>
+						<li><a href="#contact">&{'menu.friends-lists'}</a></li>
+						<li><a href="#contact">&{'menu.search'}</a></li>
+						<li><a href="@{Secure.logout()}">&{'menu.logout'}</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+	        #{doLayout /}
+		</div>
+		        
+		<footer class="footer">
+			<div class="container">
+				<p><small class="text-muted">&{'footer.powered'} <a href="http://playframework.com" target="_blank">Play! Framework</a>, <a href="http://jquery.com" target="_blank">jQuery</a> &{'footer.and'} <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>. &{'footer.inspired'} <a href="http://www.ideaswatch.com/startup-idea/things-before-i-die-social-list" target="_blank">IdeasWatch</a>.</small></p>
+				<p><small class="text-muted">&{'footer.created'} <a href="http://spn.pw" target="_blank">Sergey Poluyan</a>. &{'footer.src'} <a href="https://github.com/spoluyan/dreamlist" target="_blank">GitHub</a>.</small></p>
+			</div>
+		</footer>
         
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="UTF-8"></script>
-        #{get 'moreScripts' /}
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="@{'/public/js/app.js'}" type="text/javascript" charset="UTF-8"></script>
     </body>
 </html>
