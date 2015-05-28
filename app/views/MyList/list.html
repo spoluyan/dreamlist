@@ -1,20 +1,20 @@
 #{extends 'main.html' /}
 
 #{list items:dreams, as:'dream'}
-	<div class="row">
+	<div class="row" id="dream-row-${dream.id}">
 		<div class="col-md-1">
 			#{if dream.isDone }
-				<button id="mark-${dream.id}" type="button" class="btn btn-danger btn-lg" onclick="markDream(${dream.id})">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				<button id="mark-${dream.id}" type="button" class="btn btn-warning btn-lg" onclick="markDream(${dream.id})">
+					<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
 				</button>
 			#{/if}
   			#{else}
   				<button id="mark-${dream.id}" type="button" class="btn btn-success btn-lg" onclick="markDream(${dream.id})">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
 				</button>
   			#{/else}
 		</div>
-		<div class="col-md-11">
+		<div class="col-md-9">
 			<blockquote>
 				#{if dream.isDone }
 					<p id="dream-${dream.id}"><del>${dream.dream}</del></p>
@@ -25,9 +25,21 @@
 				<footer>Added ${dream.added}</footer>
 			</blockquote>
 		</div>
+		<div class="col-md-1">
+			<button id="mark-${dream.id}" type="button" class="btn btn-info btn-lg" onclick="editDream(${dream.id})">
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+			</button>
+		</div>
+		<div class="col-md-1">
+			<button id="mark-${dream.id}" type="button" class="btn btn-danger btn-lg" onclick="removeDream(${dream.id})">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		</div>
 	</div>
 #{/list}
 
 <script>
+	var confirmRemove = "&{'dream.remove-confirm'}";
 	var markAction = #{jsRoute @MyList.markDream(':id') /};
+	var removeAction = #{jsRoute @MyList.removeDream(':id') /};
 </script>

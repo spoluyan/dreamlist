@@ -1,6 +1,7 @@
 GET     /                                       Application.index
 GET     /my                                     MyList.list
 GET     /my/{id}/mark                           MyList.markDream
+GET     /my/{id}/remove                         MyList.removeDream
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

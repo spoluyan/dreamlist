@@ -33,6 +33,10 @@ public class Dream extends Model {
     }
 
     public static List<Dream> findByUserID(Long userID) {
-        return find("user.id = ? order by isDone asc", userID).fetch();
+        return find("user.id = ? ORDER BY isDone ASC", userID).fetch();
+    }
+
+    public static Dream findByIdAndUserID(Long id, Long userID) {
+        return find("id = ? AND user.id = ?", id, userID).first();
     }
 }
