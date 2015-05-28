@@ -29,4 +29,16 @@ public class MyList extends Controller {
         }
         ok();
     }
+
+    public static void updateDream(Long id, String text) {
+        Dream dream = Dream.findByIdAndUserID(id, Security.getUserID());
+        if (dream != null) {
+            if (text.length() > 255) {
+                text = text.substring(0, 255);
+            }
+            dream.dream = text;
+            dream.save();
+        }
+        ok();
+    }
 }

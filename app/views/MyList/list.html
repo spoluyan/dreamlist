@@ -1,5 +1,21 @@
 #{extends 'main.html' /}
 
+<div id="edit-modal" class="modal fade edit-modal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<textarea id="dream-text" class="form-control" rows="5" onkeyup="limitDreamLength()"></textarea>
+				<input type="hidden" id="dreamId">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">&{'dream.edit.cancel'}</button>
+				<button type="button" class="btn btn-primary" onclick="updateDream()">&{'dream.edit.save'}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 #{list items:dreams, as:'dream'}
 	<div class="row" id="dream-row-${dream.id}">
 		<div class="col-md-1">
@@ -26,7 +42,7 @@
 			</blockquote>
 		</div>
 		<div class="col-md-1">
-			<button id="mark-${dream.id}" type="button" class="btn btn-info btn-lg" onclick="editDream(${dream.id})">
+			<button id="mark-${dream.id}" type="button" class="btn btn-info btn-lg" onclick="editDream(${dream.id})" data-toggle="modal" data-target=".edit-modal">
 				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 			</button>
 		</div>
@@ -41,5 +57,6 @@
 <script>
 	var confirmRemove = "&{'dream.remove-confirm'}";
 	var markAction = #{jsRoute @MyList.markDream(':id') /};
+	var updateAction = #{jsRoute @MyList.updateDream(':id') /};
 	var removeAction = #{jsRoute @MyList.removeDream(':id') /};
 </script>
