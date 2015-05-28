@@ -8,16 +8,17 @@
         <link rel="stylesheet" media="screen" href="@{'/public/css/styles.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/css/footer.css'}">
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     </head>
     <body>
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="@{MyList.list()}">&{'menu.my'}</a></li>
-						<li><a href="#about">&{'menu.similar'}</a></li>
-						<li><a href="#contact">&{'menu.friends-lists'}</a></li>
-						<li><a href="#contact">&{'menu.search'}</a></li>
+						<li id="menu-my"><a href="@{MyList.list()}">&{'menu.my'}</a></li>
+						<li id="menu-similar"><a href="#about">&{'menu.similar'}</a></li>
+						<li id="menu-fr-lists"><a href="#contact">&{'menu.friends-lists'}</a></li>
+						<li id="menu-search"><a href="#contact">&{'menu.search'}</a></li>
 						<li><a href="@{Secure.logout()}">&{'menu.logout'}</a></li>
 					</ul>
 				</div>
@@ -35,7 +36,6 @@
 			</div>
 		</footer>
         
-        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="@{'/public/js/app.js'}" type="text/javascript" charset="UTF-8"></script>
     </body>

@@ -11,14 +11,6 @@ body>.container {
 	padding-left: 15px;
 }
 
-.nav>li>a {
-	padding-left: 0;
-}
-
-.nav>li>a:focus {
-	outline: none;
-}
-
 textarea {
 	resize: none;
 }
