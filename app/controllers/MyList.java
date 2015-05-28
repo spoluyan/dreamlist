@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Dream;
+import models.User;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -40,5 +41,11 @@ public class MyList extends Controller {
             dream.save();
         }
         ok();
+    }
+
+    public static void addDream(String text, boolean isPrivate) {
+        User user = User.findById(Security.getUserID());
+        new Dream(user, text, isPrivate).save();
+        list();
     }
 }

@@ -39,8 +39,8 @@ function editDream(dreamId) {
 	$('#dream-text').val(text);
 }
 
-function limitDreamLength() {
-	var textarea = $('#dream-text');
+function limitDreamLength(id) {
+	var textarea = $(id);
 	if (textarea.val().length > 255) {
         var text = textarea.val();
         textarea.val(text.substr(0, 255));   

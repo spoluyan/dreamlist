@@ -3,6 +3,7 @@ GET     /my                                     MyList.list
 GET     /my/{id}/mark                           MyList.markDream
 GET     /my/{id}/remove                         MyList.removeDream
 POST    /my/{id}/update                         MyList.updateDream
+POST    /my/add                                 MyList.addDream
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

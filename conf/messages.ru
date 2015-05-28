@@ -16,3 +16,6 @@ dream.added=Добавлено
 dream.remove-confirm=Вы уверены что хотите удалить эту запись?
 dream.edit.cancel=Отмена
 dream.edit.save=Сохранить
+dream.add.title=Добавить в список
+dream.add.private=Приватная запись
+dream.add.add=Добавить

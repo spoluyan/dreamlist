@@ -4,7 +4,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body">
-				<textarea id="dream-text" class="form-control" rows="5" onkeyup="limitDreamLength()"></textarea>
+				<textarea id="dream-text" class="form-control" rows="5" onkeyup="limitDreamLength('#dream-text')"></textarea>
 				<input type="hidden" id="dreamId">
 			</div>
 			<div class="modal-footer">
@@ -53,6 +53,20 @@
 		</div>
 	</div>
 #{/list}
+
+<hr>
+<h3>&{'dream.add.title'}</h3>
+
+#{form @MyList.addDream(), method:'POST'}
+	<textarea name="text" id="new-dream-text" class="form-control" rows="5" onkeyup="limitDreamLength('#new-dream-text')"></textarea>
+	<div class="checkbox">
+	    <label>
+	    	<input type="checkbox" name="isPrivate"> &{'dream.add.private'}
+	    </label>
+    </div>
+    <button type="submit" class="btn btn-default">&{'dream.add.add'}</button>
+#{/form}
+<br>
 
 <script>
 	var confirmRemove = "&{'dream.remove-confirm'}";
