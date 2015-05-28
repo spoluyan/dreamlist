@@ -7,6 +7,11 @@ login.password=Password
 login.remember=Remember me
 login.signin=Sing in
 
+reg.title=Registration
+reg.reg=Register
+reg.error=User with this login already exists
+reg.login=Log in
+
 menu.my=My list
 menu.similar=Similar lists
 menu.friends-lists=Friend's lists

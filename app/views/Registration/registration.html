@@ -11,25 +11,20 @@
     </head>
     <body>
 		<div class="container">
-	        #{form @authenticate(), id:'form-signin'}
-	        	<h2 class="form-signin-heading">&{'login.header'}</h2>
+	        #{form @register(), id:'form-signin'}
+	        	<h2 class="form-signin-heading">&{'reg.title'}</h2>
 	        	#{if flash.error}
 					<p class="text-danger">
-						&{'login.error'}
+						&{'reg.error'}
 					</p>
 				#{/if}
 				<label for="inputLogin" class="sr-only">&{'login.username'}</label>
-		        <input name="username" type="text" id="inputLogin" class="form-control" value="${flash.username}" placeholder="&{'login.username'}" required autofocus>
+		        <input name="login" type="text" id="inputLogin" class="form-control" value="${flash.username}" placeholder="&{'login.username'}" required autofocus>
 		        <label for="inputPassword" class="sr-only">&{'login.password'}</label>
 		        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="&{'login.password'}" required>
-		        <div class="checkbox">
-			        <label>
-			        	<input name="remember" type="checkbox" value="true" ${flash.remember ? 'checked="true"' : ''}> &{'login.remember'}
-			        </label>
-		        </div>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit">&{'login.signin'}</button>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">&{'reg.reg'}</button>
 		        
-		        <a href="@{Registration.registration()}" class="btn btn-default btn-lg btn-block" role="button">&{'reg.title'}</a>
+		        <a href="@{Secure.login()}" class="btn btn-default btn-lg btn-block" role="button">&{'reg.login'}</a>
 	        #{/form}
 		</div>
         

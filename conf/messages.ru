@@ -7,6 +7,11 @@ login.password=Пароль
 login.remember=Запомнить
 login.signin=Войти
 
+reg.title=Регистрация
+reg.reg=Зарегистрироваться
+reg.error=Пользователь с таким именем уже существует
+reg.login=Вход
+
 menu.my=Мой список
 menu.similar=Похожие списки
 menu.friends-lists=Списки друзей

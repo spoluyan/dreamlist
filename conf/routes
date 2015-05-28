@@ -1,4 +1,8 @@
 GET     /                                       Application.index
+
+GET		/reg                                    Registration.registration
+POST    /reg                                    Registration.register
+
 GET     /my                                     MyList.list
 GET     /my/{id}/mark                           MyList.markDream
 GET     /my/{id}/remove                         MyList.removeDream
@@ -16,5 +20,5 @@ GET     /favicon.ico                            404
 # Map static resources
 GET     /public/                                staticDir:public
 
-# Login, auth, logout
+# Security mapping
 *       /                                       module:secure

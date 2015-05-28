@@ -33,6 +33,6 @@ public class User extends Model {
     }
 
     public static User findByLogin(String login) {
-        return find("byLogin", login).first();
+        return find("byLogin", login.toLowerCase()).first();
     }
 }
