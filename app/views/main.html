@@ -21,6 +21,15 @@
 						<li id="menu-search"><a href="#contact">&{'menu.search'}</a></li>
 						<li><a href="@{Secure.logout()}">&{'menu.logout'}</a></li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Change language <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="@{Language.chageLanguage('en')}">English</a></li>
+								<li><a href="@{Language.chageLanguage('ru')}">Russian</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>

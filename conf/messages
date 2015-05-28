@@ -5,6 +5,7 @@ menu.similar=Similar lists
 menu.friends-lists=Friend's lists
 menu.search=Add friends
 menu.logout=Logout
+menu.lang=Change language
 
 footer.powered=Powered with
 footer.and=and
@@ -19,3 +20,6 @@ dream.edit.save=Save
 dream.add.title=Add new item
 dream.add.private=Private
 dream.add.add=Add
+
+friends-list.added=Added to your list
+friends-list.add=Add to my list

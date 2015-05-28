@@ -5,6 +5,7 @@ menu.similar=Похожие списки
 menu.friends-lists=Списки друзей
 menu.search=Добавить друзей
 menu.logout=Выйти
+menu.lang=Сменить язык
 
 footer.powered=Разработано с помощью
 footer.and=и
@@ -19,3 +20,6 @@ dream.edit.save=Сохранить
 dream.add.title=Добавить в список
 dream.add.private=Приватная запись
 dream.add.add=Добавить
+
+friends-list.added=Добавлено в ваш список
+friends-list.add=Добавить в свой список

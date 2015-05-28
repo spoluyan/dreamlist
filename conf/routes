@@ -8,6 +8,8 @@ POST    /my/add                                 MyList.addDream
 GET     /friends/lists                          FriendsLists.list
 POST    /friends/{dreamId}/copy                 FriendsLists.copy
 
+GET     /lang/{lang}                            Language.chageLanguage
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
