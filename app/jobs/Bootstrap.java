@@ -22,9 +22,9 @@ public class Bootstrap extends Job {
         User user = new User("ninja", Crypto.passwordHash("123")).save();
         user.save();
 
-        IntStream.range(0, 50).forEach(i -> new Dream(user, LONG_TEXT, i % 2 == 0).save());
+        IntStream.range(0, 10).forEach(i -> new Dream(user, LONG_TEXT, i % 2 == 0).save());
 
-        IntStream.range(0, 50).forEach(i -> {
+        IntStream.range(0, 10).forEach(i -> {
             User u = new User("test" + i, Crypto.passwordHash("" + i)).save();
 
             IntStream.range(0, 10).forEach(j -> new Dream(u, i % 2 == 0 ? LONG_TEXT : SHORT_TEXT, j % 2 == 0).save());

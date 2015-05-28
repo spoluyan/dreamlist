@@ -25,3 +25,7 @@ dream.add.add=Добавить
 
 friends-list.added=Добавлено в ваш список
 friends-list.add=Добавить в свой список
+
+error.500.heading=Ошибка 500
+error.500.text=Мы работаем над этим.
+error.500.link=Попробовать снова
