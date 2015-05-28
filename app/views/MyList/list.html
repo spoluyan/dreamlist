@@ -3,14 +3,16 @@
 #{list items:dreams, as:'dream'}
 	<div class="row">
 		<div class="col-md-1">
-			<button id="mark-${dream.id}" type="button" class="btn btn-default btn-lg" onclick="markDream(${dream.id})">
-				#{if dream.isDone }
-  					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-  				#{/if}
-  				#{else}
-  					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-  				#{/else}
-			</button>
+			#{if dream.isDone }
+				<button id="mark-${dream.id}" type="button" class="btn btn-danger btn-lg" onclick="markDream(${dream.id})">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+			#{/if}
+  			#{else}
+  				<button id="mark-${dream.id}" type="button" class="btn btn-success btn-lg" onclick="markDream(${dream.id})">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				</button>
+  			#{/else}
 		</div>
 		<div class="col-md-11">
 			<blockquote>
