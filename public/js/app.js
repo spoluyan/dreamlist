@@ -80,3 +80,17 @@ function removeDream(dreamId) {
 		});
 	}
 }
+
+function copyFromFriend(dreamId) {
+	$.ajax({
+		url : copyAction.url({
+			dreamId : dreamId
+		}),
+		type : copyAction.method
+	}).success(function() {
+		$('#added-modal').modal('show');
+		setTimeout(function() {
+			$('#added-modal').modal('hide');
+		}, 1000);
+	});
+}

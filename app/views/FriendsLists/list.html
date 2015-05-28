@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+
+<div id="added-modal" class="modal fade added-modal" tabindex="-1" role="dialog" aria-labelledby="addedModal" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+    	<div class="modal-content">
+    		<div class="modal-body">
+    			<h3 class="text-center">Added to your list</h3>	
+    		</div>
+    	</div>
+  	</div>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	#{list items:friendsLists.keySet(), as:'friend'}
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading-${friend}">
+				<h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-${friend}" aria-expanded="false" aria-controls="collapse-${friend}">${friend}</a>
+				</h4>
+			</div>
+			<div id="collapse-${friend}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-${friend}">
+				<div class="panel-body">
+					<table class="table table-striped">
+						#{list items:friendsLists[friend], as:'dream'}
+							<tr>
+								<td>
+									#{if dream.isDone }
+										<del>
+									#{/if}
+									<p>${dream.dream}</p>
+									#{if dream.isDone }
+										</del>
+									#{/if}
+								</td>
+								<td>
+									<p class="text-right"><button type="button" class="btn btn-default btn-xs" onclick="copyFromFriend(${dream.id})">Add to my list</button></p>
+								</td>
+							</tr>
+						#{/list}
+					</table>
+				</div>
+			</div>
+		</div>
+	#{/list}
+</div>
+
+<script>
+	var copyAction = #{jsRoute @FriendsLists.copy(':dreamId') /};
+	
+	$('#menu-fr-lists').addClass('active');
+</script>

@@ -36,6 +36,10 @@ public class Dream extends Model {
         return find("user.id = ? ORDER BY isDone ASC", userID).fetch();
     }
 
+    public static List<Dream> findPublicByUserID(Long userID) {
+        return find("user.id = ? AND isPrivate = ? ORDER BY isDone ASC", userID, false).fetch();
+    }
+
     public static Dream findByIdAndUserID(Long id, Long userID) {
         return find("id = ? AND user.id = ?", id, userID).first();
     }

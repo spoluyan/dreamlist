@@ -1,6 +1,10 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import play.data.validation.MaxSize;
@@ -19,6 +23,9 @@ public class User extends Model {
     @Required
     @MaxSize(value = 255)
     public String password;
+
+    @ManyToMany
+    public List<User> friends = new ArrayList<>();
 
     public User(String login, String password) {
         this.login = login;

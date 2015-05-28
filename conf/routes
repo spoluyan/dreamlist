@@ -5,6 +5,9 @@ GET     /my/{id}/remove                         MyList.removeDream
 POST    /my/{id}/update                         MyList.updateDream
 POST    /my/add                                 MyList.addDream
 
+GET     /friends/lists                          FriendsLists.list
+POST    /friends/{dreamId}/copy                 FriendsLists.copy
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
