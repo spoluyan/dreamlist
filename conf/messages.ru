@@ -6,6 +6,8 @@ menu.friends-lists=Списки друзей
 menu.search=Добавить друзей
 menu.logout=Выйти
 menu.lang=Сменить язык
+menu.lang.en=English
+menu.lang.ru=Русский
 
 footer.powered=Разработано с помощью
 footer.and=и
