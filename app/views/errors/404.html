@@ -2,10 +2,24 @@
 
 <html>
     <head>
-        <title>Not found</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+        <title>404</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/styles.css'}">
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     </head>
     <body>
-        #{404 result /}
+    	#{if play.mode.name() == 'DEV'}
+            #{404 result /}
+        #{/if}
+        #{else}
+            <div class="container">
+			    <div class="jumbotron">
+				    <h1>&{'error.404.heading'}</h1>
+				    <p class="lead">&{'error.404.text'}</p>
+				    <p><a class="btn btn-lg btn-success" href="@{Application.index()}" role="button">&{'error.404.link'}</a></p>
+			    </div>
+			</div>
+        #{/else}
     </body>
 </html>
