@@ -1,5 +1,12 @@
 app.title=Things Before I Die
 
+login.header=Вход на сайт
+login.error=Неверный логин или пароль
+login.username=Логин
+login.password=Пароль
+login.remember=Запомнить
+login.signin=Войти
+
 menu.my=Мой список
 menu.similar=Похожие списки
 menu.friends-lists=Списки друзей

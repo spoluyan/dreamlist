@@ -3,7 +3,6 @@ package controllers;
 import models.User;
 import play.libs.Crypto;
 
-//TODO override login page
 public class Security extends Secure.Security {
     private static final String USER_ID_SESSION_KEY = "userid";
 

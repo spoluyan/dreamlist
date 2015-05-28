@@ -1,5 +1,12 @@
 app.title=Things Before I Die
 
+login.header=Please sign in
+login.error=Incorrect login or password
+login.username=Login
+login.password=Password
+login.remember=Remember me
+login.signin=Sing in
+
 menu.my=My list
 menu.similar=Similar lists
 menu.friends-lists=Friend's lists

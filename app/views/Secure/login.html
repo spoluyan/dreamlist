@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>&{'app.title'}</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/styles.css'}">
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+		<div class="container">
+	        #{form @authenticate(), id:'form-signin'}
+	        	<h2 class="form-signin-heading">&{'login.header'}</h2>
+	        	#{if flash.error}
+					<p class="text-danger">
+						&{'login.error'}
+					</p>
+				#{/if}
+				<label for="inputLogin" class="sr-only">&{'login.username'}</label>
+		        <input name="username" type="text" id="inputLogin" class="form-control" value="${flash.username}" placeholder="&{'login.username'}" required autofocus>
+		        <label for="inputPassword" class="sr-only">&{'login.password'}</label>
+		        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="&{'login.password'}" required>
+		        <div class="checkbox">
+			        <label>
+			        	<input name="remember" type="checkbox" value="true" ${flash.remember ? 'checked="true"' : ''}> &{'login.remember'}
+			        </label>
+		        </div>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">&{'login.signin'}</button>
+	        #{/form}
+		</div>
+        
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
