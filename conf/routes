@@ -11,7 +11,7 @@ POST    /my/add                                 MyList.addDream
 
 GET     /similar                                SimilarLists.list
 
-POST    /friends/add                            AddFriends.addFriend
+POST    /friends/add                            Friends.addFriend
 
 GET     /friends/lists                          FriendsLists.list
 POST    /friends/{dreamId}/copy                 FriendsLists.copy
