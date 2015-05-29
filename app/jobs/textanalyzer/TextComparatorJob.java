@@ -10,10 +10,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.stream.Collectors;
 import java.util.zip.CRC32;
-
-import javax.persistence.EntityManager;
 
 import models.Dream;
 
@@ -21,7 +18,6 @@ import org.apache.commons.io.IOUtils;
 import org.tartarus.snowball.SnowballStemmer;
 
 import play.Play;
-import play.db.jpa.JPA;
 import play.jobs.Every;
 
 @Every("10s")
@@ -32,13 +28,12 @@ public class TextComparatorJob extends TextAnalyzerJob {
     @Override
     public void doJobInternal() {
         List<Dream> dreams = Dream.findAllPublicWithLanguage();
-        dreams.parallelStream().forEach(
+        dreams.stream().forEach(
                 dream -> {
                     dream.similarDreams = null;
-                    dreams.parallelStream()
+                    dreams.stream()
                             .filter(otherDream -> !(otherDream.id.equals(dream.id))
-                                    || otherDream.user.id.equals(dream.user.id)).collect(Collectors.toList())
-                            .parallelStream().forEach(dreamToCompare -> {
+                                    || otherDream.user.id.equals(dream.user.id)).forEach(dreamToCompare -> {
                                 if (dreamsAreSimilar(dream, dreamToCompare)) {
                                     updateSimilarDreams(dream, dreamToCompare);
                                 }
@@ -106,10 +101,6 @@ public class TextComparatorJob extends TextAnalyzerJob {
 
     private void updateSimilarDreams(Dream dream, Dream dreamToCompare) {
         Map<Long, Set<Long>> usersWithSimilarDreams = new HashMap<>();
-        String similarDreams = dream.similarDreams;
-        if (similarDreams != null) {
-            usersWithSimilarDreams = dream.convertSimilarDreams();
-        }
         Set<Long> dreamsIDS = usersWithSimilarDreams.get(dreamToCompare.user.id);
         if (dreamsIDS == null) {
             dreamsIDS = new HashSet<>();
@@ -118,16 +109,6 @@ public class TextComparatorJob extends TextAnalyzerJob {
         usersWithSimilarDreams.put(dreamToCompare.user.id, dreamsIDS);
         dream.convertSimilarDreams(usersWithSimilarDreams);
 
-        saveDream(dream);
-    }
-
-    private void saveDream(Dream dream) {
-        EntityManager em = JPA.newEntityManager();
-        JPA.bindForCurrentThread(JPA.DEFAULT, em, false);
-        JPA.startTx(JPA.DEFAULT, false);
-        Dream dreamToUpdate = Dream.findById(dream.id);
-        dreamToUpdate.similarDreams = dream.similarDreams;
-        dreamToUpdate.save();
-        JPA.closeTx(JPA.DEFAULT);
+        dream.save();
     }
 }
