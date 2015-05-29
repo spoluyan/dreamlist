@@ -1,4 +1,4 @@
-package jobs;
+package jobs.bootstrap;
 
 import java.util.stream.IntStream;
 
