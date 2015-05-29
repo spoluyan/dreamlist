@@ -20,7 +20,7 @@ import org.tartarus.snowball.SnowballStemmer;
 import play.Play;
 import play.jobs.Every;
 
-@Every("10s")
+@Every("1h")
 public class TextComparatorJob extends TextAnalyzerJob {
     private static final int MIN_PERCENT_FOR_SIMILARITY = Integer.parseInt(Play.configuration
             .getProperty("analyzing.min-percent-to-similar"));

@@ -14,7 +14,7 @@ import org.apache.commons.io.IOUtils;
 import play.Play;
 import play.jobs.Every;
 
-@Every("5s")
+@Every("1h")
 public class GuessLanguageJob extends TextAnalyzerJob {
     @Override
     public void doJobInternal() {
