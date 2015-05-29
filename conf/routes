@@ -9,6 +9,8 @@ GET     /my/{id}/remove                         MyList.removeDream
 POST    /my/{id}/update                         MyList.updateDream
 POST    /my/add                                 MyList.addDream
 
+GET     /similar                                SimilarLists.list
+
 GET     /friends/lists                          FriendsLists.list
 POST    /friends/{dreamId}/copy                 FriendsLists.copy
 
