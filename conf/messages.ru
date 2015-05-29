@@ -26,6 +26,7 @@ footer.and=и
 footer.inspired=Идея взята с
 footer.created=Создатель:
 footer.src=Исходный код:
+footer.version=Версия
 
 dream.added=Добавлено
 dream.remove-confirm=Вы уверены что хотите удалить эту запись?
