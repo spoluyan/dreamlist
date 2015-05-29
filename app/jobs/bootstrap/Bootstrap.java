@@ -26,18 +26,20 @@ public class Bootstrap extends Job {
 
             IntStream.range(0, 10).forEach(i -> new Dream(user, LONG_TEXT, i % 2 == 0).save());
 
-            IntStream.range(0, 10).forEach(
-                    i -> {
-                        User u = new User("test" + i, Crypto.passwordHash("" + i)).save();
+            IntStream.range(0, 10).forEach(i -> {
+                User u = new User("test" + i, Crypto.passwordHash("" + i)).save();
 
-                        IntStream.range(0, 10).forEach(
-                                j -> new Dream(u, i % 2 == 0 ? LONG_TEXT : SHORT_TEXT, j % 2 == 0).save());
-                        u.friends.add(user);
-                        u.save();
+                IntStream.range(0, 10).forEach(j -> {
+                    Dream dream = new Dream(u, i % 2 == 0 ? LONG_TEXT : SHORT_TEXT, j % 2 == 0);
+                    dream.guessedLanguage = "EN";
+                    dream.save();
+                });
+                u.friends.add(user);
+                u.save();
 
-                        user.friends.add(u);
-                        user.save();
-                    });
+                user.friends.add(u);
+                user.save();
+            });
         }
     }
 }

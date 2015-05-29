@@ -41,7 +41,6 @@ public class Dream extends Model {
     public boolean markedAsSimilar;
 
     public Dream(User user, String dream, boolean isPrivate) {
-        super();
         this.user = user;
         this.dream = dream;
         this.added = new Date();
