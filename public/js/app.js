@@ -107,3 +107,13 @@ function addFriend(login) {
 		}, 1000);
 	});
 }
+
+function deleteFriend(login) {
+	$.ajax({
+		url : deleteFriendAction.url(),
+		type : deleteFriendAction.method,
+		data: 'login=' + login
+	}).success(function() {
+		$('#panel-' + login).remove();
+	});
+}

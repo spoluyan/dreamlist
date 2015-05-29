@@ -37,6 +37,7 @@ dream.add.add=Добавить
 
 friends-list.added=Добавлено в ваш список
 friends-list.add=Добавить в свой список
+friends-list.delete=Удалить из друзей
 
 similar-lists.add=Добавить в друзья
 similar-lists.added=Добавлен в друзья

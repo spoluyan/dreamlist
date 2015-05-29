@@ -12,10 +12,13 @@
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	#{list items:friendsLists.keySet(), as:'friend'}
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="panel-${friend}">
 			<div class="panel-heading" role="tab" id="heading-${friend}">
 				<h4 class="panel-title">
 					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-${friend}" aria-expanded="false" aria-controls="collapse-${friend}">${friend}</a>
+					<button type="button" class="btn btn-default btn-xs" onclick="deleteFriend('${friend}')">
+	  					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> &{'friends-list.delete'}
+					</button>
 				</h4>
 			</div>
 			<div id="collapse-${friend}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-${friend}">
@@ -46,6 +49,7 @@
 
 <script>
 	var copyAction = #{jsRoute @FriendsLists.copy(':dreamId') /};
+	var deleteFriendAction = #{jsRoute @Friends.deleteFriend() /};
 	
 	$('#menu-fr-lists').addClass('active');
 </script>
