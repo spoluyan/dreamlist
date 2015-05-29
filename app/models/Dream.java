@@ -37,6 +37,8 @@ public class Dream extends Model {
     public String guessedLanguage;
     @Lob
     public String similarDreams;
+    @Transient
+    public boolean markedAsSimilar;
 
     public Dream(User user, String dream, boolean isPrivate) {
         super();

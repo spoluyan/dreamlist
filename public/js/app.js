@@ -94,3 +94,16 @@ function copyFromFriend(dreamId) {
 		}, 1000);
 	});
 }
+
+function addFriend(login) {
+	$.ajax({
+		url : addFriendAction.url(),
+		type : addFriendAction.method,
+		data: 'login=' + login
+	}).success(function() {
+		$('#added-modal').modal('show');
+		setTimeout(function() {
+			$('#added-modal').modal('hide');
+		}, 1000);
+	});
+}

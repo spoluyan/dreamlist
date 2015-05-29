@@ -1,5 +1,55 @@
 #{extends 'main.html' /}
 
-#{list items:dreams, as:'dream'}
-	<p>${dream.similarDreams}</p>
-#{/list}
+<div id="added-modal" class="modal fade added-modal" tabindex="-1" role="dialog" aria-labelledby="addedModal" aria-hidden="true">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+    		<div class="modal-body">
+    			<h3 class="text-center">&{'similar-lists.added'}</h3>	
+    		</div>
+    	</div>
+  	</div>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	#{list items:usersWithSimilarDreams.keySet(), as:'user'}
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading-${user._1}">
+				<h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-${user._1}" aria-expanded="false" aria-controls="collapse-${user._1}">${user._1}</a>
+					#{if user._2 == false }
+						<button type="button" class="btn btn-default btn-xs" onclick="addFriend('${user._1}')">
+	  						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &{'similar-lists.add'}
+						</button>
+					#{/if}
+				</h4>
+			</div>
+			<div id="collapse-${user._1}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-${user._1}">
+				<div class="panel-body">
+					#{list items:usersWithSimilarDreams[user], as:'dream'}
+						<p>
+							#{if dream.isDone }
+								<del>
+							#{/if}
+							#{if dream.markedAsSimilar }
+								<mark>
+							#{/if}
+							${dream.dream}
+							#{if dream.markedAsSimilar }
+								</mark>
+							#{/if}
+							#{if dream.isDone }
+								</del>
+							#{/if}
+						</p>
+					#{/list}
+				</div>
+			</div>
+		</div>
+	#{/list}
+</div>
+
+<script>
+	var addFriendAction = #{jsRoute @AddFriends.addFriend() /};
+	
+	$('#menu-similar').addClass('active');
+</script>

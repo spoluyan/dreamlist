@@ -100,7 +100,10 @@ public class TextComparatorJob extends TextAnalyzerJob {
     }
 
     private void updateSimilarDreams(Dream dream, Dream dreamToCompare) {
-        Map<Long, Set<Long>> usersWithSimilarDreams = new HashMap<>();
+        Map<Long, Set<Long>> usersWithSimilarDreams = dream.convertSimilarDreams();
+        if (usersWithSimilarDreams == null) {
+            usersWithSimilarDreams = new HashMap<>();
+        }
         Set<Long> dreamsIDS = usersWithSimilarDreams.get(dreamToCompare.user.id);
         if (dreamsIDS == null) {
             dreamsIDS = new HashSet<>();
@@ -108,7 +111,6 @@ public class TextComparatorJob extends TextAnalyzerJob {
         dreamsIDS.add(dreamToCompare.id);
         usersWithSimilarDreams.put(dreamToCompare.user.id, dreamsIDS);
         dream.convertSimilarDreams(usersWithSimilarDreams);
-
         dream.save();
     }
 }
