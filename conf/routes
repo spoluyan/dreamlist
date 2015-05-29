@@ -13,6 +13,8 @@ GET     /similar                                SimilarLists.list
 
 POST    /friends/add                            Friends.addFriend
 POST    /friends/delete                         Friends.deleteFriend
+GET     /friends/search                         Friends.search
+POST    /friends/search                         Friends.performSearch
 
 GET     /friends/lists                          FriendsLists.list
 POST    /friends/{dreamId}/copy                 FriendsLists.copy

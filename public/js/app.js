@@ -105,6 +105,9 @@ function addFriend(login) {
 		setTimeout(function() {
 			$('#added-modal').modal('hide');
 		}, 1000);
+		if ($('#search').length != 0) {
+			search();
+		}
 	});
 }
 
@@ -115,5 +118,20 @@ function deleteFriend(login) {
 		data: 'login=' + login
 	}).success(function() {
 		$('#panel-' + login).remove();
+	});
+}
+
+function search() {
+	var q = $('#search').val();
+	$.ajax({
+		url : searchAction.url(),
+		type : searchAction.method,
+		data: 'query=' + q
+	}).success(function(data) {
+		var result = $('#search-result');
+		result.empty();
+		for (var i = 0; i < data.length; i++) {
+			result.append('<tr><td>' + data[i] + '</td><td><button type="button" class="btn btn-default btn-xs" onclick="addFriend(\'' + data[i] + '\')">' + addButtonText + '</button></td></tr>');
+		}
 	});
 }
